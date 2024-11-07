@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Логин страница</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+    }
+    .login-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    .login-container h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 3px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .link {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #555;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>Вход</h2>
+  <form action="/login" method="POST">
+    <input type="text" placeholder="Имя пользователя или Email" required>
+    <input type="password" placeholder="Пароль" required>
+    <button type="submit">Войти</button>
+    <a href="#" class="link">Забыли пароль?</a>
+    <a href="#" class="link">Регистрация</a>
+  </form>
+</div>
+
+</body>
+</html>
