@@ -1,17 +1,19 @@
-
-div {
-    
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
+.log-con {
+    width: 100%;
+    max-width: 32rem;
+    padding: 2rem;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 1.5rem;   
+}
 
-.main-btn {
-    border: solid 2px #6997f3 ;
-    width: 200px;
-    height: 20px;
-    color: darkblue;
-    background-color: skyblue;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    border-radius: 20px;
+h2 {
+    
 }
