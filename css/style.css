@@ -1336,9 +1336,43 @@ section {
   color: var(--main-color);
 }
 
+.form-status {
+  display: none;
+  padding: 1.4rem 2rem;
+  border-radius: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  animation: slideDown 0.4s ease;
+}
+
+.form-status.success {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+.form-status.error {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+
 .btn-submit {
   align-self: flex-start;
   margin-top: 1rem;
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
 }
 
 /* =============================================

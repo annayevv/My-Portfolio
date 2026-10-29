@@ -478,15 +478,18 @@
           </div>
         </div>
 
-        <form action="mailto:annayeworaz2004@gmail.com" method="post" enctype="text/plain" class="contact-form reveal-up" style="animation-delay: 0.2s">
+        <form id="contactForm" class="contact-form reveal-up" style="animation-delay: 0.2s">
+          <input type="hidden" name="access_key" value="ce952160-0b21-4d28-b6bc-3d0f7ed9eb88" />
+          <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+          
           <div class="input-box">
             <div class="input-field">
-              <input type="text" placeholder=" " required />
+              <input type="text" name="name" placeholder=" " required />
               <label>Your Name</label>
               <i class="bx bx-user"></i>
             </div>
             <div class="input-field">
-              <input type="email" placeholder=" " required />
+              <input type="email" name="email" placeholder=" " required />
               <label>Your Email</label>
               <i class="bx bx-envelope"></i>
             </div>
@@ -494,24 +497,26 @@
 
           <div class="input-box">
             <div class="input-field">
-              <input type="tel" placeholder=" " />
+              <input type="tel" name="phone" placeholder=" " />
               <label>Phone Number</label>
               <i class="bx bx-phone"></i>
             </div>
             <div class="input-field">
-              <input type="text" placeholder=" " />
+              <input type="text" name="subject" placeholder=" " />
               <label>Subject</label>
               <i class="bx bx-notepad"></i>
             </div>
           </div>
 
           <div class="textarea-field">
-            <textarea rows="6" placeholder=" " required></textarea>
+            <textarea name="message" rows="6" placeholder=" " required></textarea>
             <label>Your Message</label>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-submit">
-            <i class="bx bx-send"></i> Send Message
+          <div id="formStatus" class="form-status"></div>
+
+          <button type="submit" id="submitBtn" class="btn btn-primary btn-submit">
+            <i class="bx bx-send"></i> <span>Send Message</span>
           </button>
         </form>
       </div>

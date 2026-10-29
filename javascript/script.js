@@ -450,6 +450,62 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// ===== Contact Form Submission (Web3Forms AJAX) =====
+const contactForm = document.querySelector("#contactForm");
+const formStatus = document.querySelector("#formStatus");
+const submitBtn = document.querySelector("#submitBtn");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const submitBtnText = submitBtn.querySelector("span");
+    const originalText = submitBtnText.textContent;
+    const submitBtnIcon = submitBtn.querySelector("i");
+    const originalIconClass = submitBtnIcon.className;
+
+    // Loading state
+    submitBtn.disabled = true;
+    submitBtnIcon.className = "bx bx-loader-alt bx-spin";
+    submitBtnText.textContent = "Sending...";
+    formStatus.style.display = "none";
+    formStatus.className = "form-status";
+
+    const formData = new FormData(contactForm);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        formStatus.className = "form-status success";
+        formStatus.innerHTML = '<i class="bx bx-check-circle"></i> Thank you! Your message has been sent successfully.';
+        formStatus.style.display = "flex";
+        contactForm.reset();
+
+        // Hide success message after 6 seconds
+        setTimeout(() => {
+          formStatus.style.display = "none";
+        }, 6000);
+      } else {
+        throw new Error(data.message || "Submission failed");
+      }
+    } catch (error) {
+      formStatus.className = "form-status error";
+      formStatus.innerHTML = '<i class="bx bx-error-circle"></i> Oops! Something went wrong. Please try again or email me directly.';
+      formStatus.style.display = "flex";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtnIcon.className = originalIconClass;
+      submitBtnText.textContent = originalText;
+    }
+  });
+}
+
 console.log(
   "%c🚀 Portfolio Loaded | Orazmämmet Annaýew",
   "color: #00f0ff; font-size: 16px; font-weight: bold;"
